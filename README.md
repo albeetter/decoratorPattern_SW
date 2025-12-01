@@ -16,26 +16,20 @@ Interface Consistency: All components (basic coffee and additions) should share 
 #### Implementation Structure (Coffee Shop)
 1. The Component Interface
 - This defines the common operations for both the basic item and the decorators.
-Interface: Coffee
-Operation: getDescription() (returns the ingredients) and getCost() (returns the price).
+- Interface: Coffee
+- Operation: getDescription() (returns the ingredients) and getCost() (returns the price).
 2. The Concrete Component
 - This is the original, basic object that will be decorated.
-Class: BlackCoffee
-Implementation:
-getDescription(): returns "Black Coffee"
-getCost(): returns  ₱ 100.00
+- Class: BlackCoffee
+- Implementation: getDescription(): returns "Black Coffee" getCost(): returns  ₱ 100.00
 3. The Decorator Abstraction
 - This ensures the decorator classes implement the Coffee interface and have a way to hold a reference to the Coffee object they are wrapping.
-Abstract Class/Interface: CoffeeDecorator (implements Coffee)
-Implementation: Holds a private Coffee object and has a constructor/setter to wrap it. The methods will typically call the wrapped object's method before adding its own enhancement.
+- Abstract Class/Interface: CoffeeDecorator (implements Coffee)
+- Implementation: Holds a private Coffee object and has a constructor/setter to wrap it. The methods will typically call the wrapped object's method before adding its own enhancement.
 4. The Concrete Decorators
 - These classes add specific features (cost and description) to the wrapped Coffee object.
-Class: Milk (implements CoffeeDecorator)
-Implementation:
-getDescription(): returns wrappedCoffee.getDescription() + ", Milk"
-getCost(): returns wrappedCoffee.getCost() +   ₱ 25.00
-Class: CaramelSyrup (implements CoffeeDecorator)
-Implementation:
-getDescription(): returns wrappedCoffee.getDescription() + ", Caramel Syrup"
-getCost(): returns wrappedCoffee.getCost() + ₱ 40.00
+- Class: Milk (implements CoffeeDecorator)
+- Implementation: getDescription(): returns wrappedCoffee.getDescription() + ", Milk" getCost(): returns wrappedCoffee.getCost() +   ₱ 25.00
+- Class: CaramelSyrup (implements CoffeeDecorator)
+- Implementation: getDescription(): returns wrappedCoffee.getDescription() + ", Caramel Syrup" getCost(): returns wrappedCoffee.getCost() + ₱ 40.00
 
